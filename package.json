@@ -31,7 +31,7 @@
     "@medusajs/event-bus-local": "^1.9.7",
     "@medusajs/event-bus-redis": "^1.8.10",
     "@medusajs/medusa": "1.17.4",
-    "@tanstack/react-query": "4.22.0",
+    "@tanstack/react-query": "5.8.4",
     "@trigger.dev/sdk": "^2.2.7",
     "babel-preset-medusa-package": "^1.1.13",
     "body-parser": "^1.19.0",
