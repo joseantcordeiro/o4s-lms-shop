@@ -37,21 +37,34 @@ const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
   {
-    resolve: `@medusajs/file-local`,
+    resolve: `medusa-file-r2`,
     options: {
-      upload_dir: "uploads",
+			account_id: process.env.R2_ACCOUNT_ID,
+			access_key: process.env.R2_ACCESS_KEY,
+			secret_key: process.env.R2_SECRET_KEY,
+			bucket: process.env.R2_BUCKET_NAME,
+			public_url: process.env.R2_PUBLIC_URL,
     },
   },
-  {
-    resolve: "@medusajs/admin",
-    /** @type {import('@medusajs/admin').PluginOptions} */
-    options: {
-      autoRebuild: true,
-      develop: {
-        open: process.env.OPEN_BROWSER !== "false",
-      },
-    },
-  },
+	{
+		resolve: `medusa-payment-paypal`,
+		options: {
+			sandbox: process.env.PAYPAL_SANDBOX,
+			client_id: process.env.PAYPAL_CLIENT_ID,
+			client_secret: process.env.PAYPAL_CLIENT_SECRET,
+			auth_webhook_id: process.env.PAYPAL_AUTH_WEBHOOK_ID,
+		},
+	},
+  //{
+  //  resolve: "@medusajs/admin",
+  //  /** @type {import('@medusajs/admin').PluginOptions} */
+  //  options: {
+  //    autoRebuild: true,
+  //    develop: {
+  //      open: process.env.OPEN_BROWSER !== "false",
+  //    },
+  //  },
+  //},
 ];
 
 const modules = {
